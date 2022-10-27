@@ -1,7 +1,6 @@
 import './form-input-style.scss'
 
 const FormInput = ({ inputOption }) => {
-
     return (
         <div className='group'>
             <input

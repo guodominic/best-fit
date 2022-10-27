@@ -37,7 +37,6 @@ const SignUp = () => {
             return;
         }
         try {
-            console.log(formField)
             const { user } = await createAuthUserWithEmailAndPassword(email, password)
             //console.log(response.user) 
             await createUserDocFromAuth(user, { userName })
@@ -49,9 +48,10 @@ const SignUp = () => {
             } else {
                 console.log('hmm.. something wrong when creating new account', error)
             }
+            resetFormField();
         }
     }
-    const { userName, email, password, confirmPassWord } = formField;
+    const { userName, email, password, confirmPassword } = formField;
 
     const inputOptions = [
         {
@@ -79,7 +79,7 @@ const SignUp = () => {
             label: 'Confirm password',
             type: 'password',
             name: 'confirmPassword',
-            value: confirmPassWord,
+            value: confirmPassword,
             onChange: handleChange
         }
     ]
@@ -88,7 +88,6 @@ const SignUp = () => {
     return (
         <div className='sign-up-container'>
             <h2>Don't have an account?</h2>
-            <span>Sign up with your email and password</span>
             <form onSubmit={handleSubmit} className='signUpForm'>
                 {inputOptions.map(inputOption => (
                     <FormInput key={inputOption.label} inputOption={inputOption} />
