@@ -11,7 +11,7 @@ const SignUp = () => {
     //const [setCurrentUser] = useContext(UserContext)
 
     const defaultFormField = {
-        userName: '',
+        displayName: '',
         email: '',
         password: '',
         confirmPassword: ''
@@ -30,7 +30,7 @@ const SignUp = () => {
 
     const handleSubmit = async (event) => {
         event.preventDefault();
-        const { userName, email, password, confirmPassword } = formField;
+        const { displayName, email, password, confirmPassword } = formField;
         //check password match and length
         if (password !== confirmPassword) {
             alert('password do not match')
@@ -42,7 +42,7 @@ const SignUp = () => {
         try {
             const { user } = await createAuthUserWithEmailAndPassword(email, password)
             //console.log(response.user) 
-            await createUserDocFromAuth(user, { userName })
+            await createUserDocFromAuth(user, { displayName })
             resetFormField();
         }
         catch (error) {
@@ -54,14 +54,14 @@ const SignUp = () => {
             resetFormField();
         }
     }
-    const { userName, email, password, confirmPassword } = formField;
+    const { displayName, email, password, confirmPassword } = formField;
 
     const inputOptions = [
         {
             label: 'Your User Name',
             type: 'text',
-            name: 'userName',
-            value: userName,
+            name: 'displayName',
+            value: displayName,
             onChange: handleChange
         },
         {

@@ -3,12 +3,17 @@ import { Fragment, useContext } from 'react'
 import { ReactComponent as CrownLogo } from '../../Assets/crown.svg'
 import './navigation-styles.scss'
 import { UserContext } from '../../contexts/user-context'
-import { signOutUser } from '../../utils/firebase/firebase.utils.js'
+import { signOutUser, deleteAccountUser } from '../../utils/firebase/firebase.utils.js'
 
 const Navigation = () => {
 
     const { currentUser, setCurrentUser } = useContext(UserContext);
     const signOutHandler = async () => {
+        await signOutUser();
+        setCurrentUser(null);
+    }
+    const deleteAccountHandler = async () => {
+        //await deleteAccountUser(currentUser.uid);
         await signOutUser();
         setCurrentUser(null);
     }
@@ -26,9 +31,12 @@ const Navigation = () => {
                         CONTACT
                     </Link>
                     {currentUser ? (
-                        <span className='nav-link' onClick={signOutHandler}
-                        >
-                            Sign Out</span>
+                        <div style={{ display: 'flex' }}>
+                            <span className='nav-link' onClick={signOutHandler}
+                            >
+                                SIGN OUT</span>
+                            <span className='nav-link' onClick={deleteAccountHandler} >DELETE ACCOUNT</span>
+                        </div>
                     ) : (
                         <Link
                             className='nav-link'

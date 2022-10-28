@@ -56,7 +56,7 @@ const SignIn = () => {
 
     const signInWithGoogleAcct = async () => {
         const response = await signInWithGooglePopup();
-        console.log(response);
+        setCurrentUser(response.user)
         await createUserDocFromAuth(response.user)
     }
 
