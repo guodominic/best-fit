@@ -16,7 +16,6 @@ const Authentication = () => {
             }
         }, []) */
 
-
     return (
         <div className='authentication-container'>
             <SignIn />
