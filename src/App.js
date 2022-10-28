@@ -8,12 +8,16 @@ const App = () => {
   const Shop = () => {
     return <h1>I'm the shop</h1>
   }
+  const Contact = () => {
+    return <h1>I'm the Contact</h1>
+  }
   return (
     <Routes>
-      <Route path='/' element={<Navigation />} >
+      <Route path='/best-fit' element={<Navigation />} >
         <Route index element={<Home />} />
-        <Route path='shop' element={<Shop />} />
-        <Route path='auth' element={<Authentication />} />
+        <Route path='best-fit/shop' element={<Shop />} />
+        <Route path='best-fit/contact' element={<Contact />} />
+        <Route path='best-fit/auth' element={<Authentication />} />
       </Route>
     </Routes>
   )

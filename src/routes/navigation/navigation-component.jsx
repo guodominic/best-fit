@@ -20,14 +20,14 @@ const Navigation = () => {
     return (
         <Fragment>
             <div className='navigation'>
-                <Link className='logo-container' to='/'>
+                <Link className='logo-container' to='/best-fit'>
                     <CrownLogo />
                 </Link>
                 <div className='nav-links-container'>
-                    <Link className='nav-link' to='/shop'>
+                    <Link className='nav-link' to='best-fit/shop'>
                         SHOP
                     </Link>
-                    <Link className='nav-link' to='/contact'>
+                    <Link className='nav-link' to='best-fit/contact'>
                         CONTACT
                     </Link>
                     {currentUser ? (
@@ -40,7 +40,7 @@ const Navigation = () => {
                     ) : (
                         <Link
                             className='nav-link'
-                            to='/auth'>
+                            to='best-fit/auth'>
                             SIGN IN
                         </Link>
                     )
