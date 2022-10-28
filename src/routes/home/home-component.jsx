@@ -5,28 +5,28 @@ const Home = () => {
     const categories = [
         {
             id: 1,
-            title: 'hats',
-            imageUrl: 'https://i.ibb.co/cvpntL1/hats.png',
+            title: 'toys',
+            imageUrl: 'https://www.ikea.com/images/9e/19/9e1915e010a673f44b7d4bb97c0ece16.png?f=s',
         },
         {
             id: 2,
-            title: 'jackets',
-            imageUrl: 'https://i.ibb.co/px2tCc3/jackets.png',
+            title: 'hygiene',
+            imageUrl: 'https://dev.rodpub.com/images/130/975_main.jpg',
         },
         {
             id: 3,
-            title: 'sneakers',
-            imageUrl: 'https://i.ibb.co/0jqHpnp/sneakers.png',
+            title: 'furniture',
+            imageUrl: 'https://shop.static.ingka.ikea.com/revamp/nursery-furniture_45780.jpg',
         },
         {
             id: 4,
-            title: 'womens',
-            imageUrl: 'https://i.ibb.co/GCCdy8t/womens.png',
+            title: 'clothes',
+            imageUrl: 'https://images-na.ssl-images-amazon.com/images/G/01/AMAZON_FASHION/2018/EDITORIAL/FALL1/BABY/Girls_Mobile.jpg',
         },
         {
             id: 5,
-            title: 'mens',
-            imageUrl: 'https://i.ibb.co/R70vBrQ/men.png',
+            title: 'other',
+            imageUrl: 'https://mylittleeater.com/wp-content/uploads/2021/11/Podcast-art-Mom-baby-gift-guide-2021-pin-1080-x-1080-px.png',
         },
     ];
 
