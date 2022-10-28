@@ -9,6 +9,7 @@ import {
     signInWithEmailAndPassword,
     signOut,
     deleteUser,
+    onAuthStateChanged,
 } from 'firebase/auth'
 
 import {
@@ -87,3 +88,5 @@ export const deleteAccountUser = async (uid) => {
             console.log('Successfully deleted user');
         })
 }
+
+export const onAuthStateChangedListener = (callback) => onAuthStateChanged(auth, callback);
