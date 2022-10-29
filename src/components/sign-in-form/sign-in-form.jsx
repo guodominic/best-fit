@@ -8,7 +8,7 @@ import {
 import FormInput from '../form-input/form-input-component'
 import './sign-in-style.scss'
 import Button from '../button/button.component'
-import { UserContext } from '../../contexts/user-context'
+//import { UserContext } from '../../contexts/user-context'
 
 const SignIn = () => {
 
@@ -18,8 +18,8 @@ const SignIn = () => {
     }
 
     const [formField, setFormField] = useState(defaultFormField)
-
-    const { setCurrentUser } = useContext(UserContext)
+    //onAuthStateChanged, the centralized state linstener can listen to the state change of authentication
+    //const { setCurrentUser } = useContext(UserContext)
 
     const resetFormField = () => {
         setFormField(defaultFormField)
@@ -35,7 +35,7 @@ const SignIn = () => {
         try {
             const response = await signInAuthUserWithEmailAndPassword(email, password)
             console.log(response)
-            setCurrentUser(response.user)
+            //setCurrentUser(response.user)
             resetFormField();
         }
         catch (error) {
@@ -55,9 +55,10 @@ const SignIn = () => {
     const { email, password } = formField;
 
     const signInWithGoogleAcct = async () => {
-        const response = await signInWithGooglePopup();
-        setCurrentUser(response.user)
-        await createUserDocFromAuth(response.user)
+        await signInWithGooglePopup();
+        //setCurrentUser(response.user)
+        //below is moved to user-context.jsx
+        //await createUserDocFromAuth(response.user)
     }
 
     const inputOptions = [

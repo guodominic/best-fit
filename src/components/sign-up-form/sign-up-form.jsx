@@ -4,10 +4,10 @@ import { createAuthUserWithEmailAndPassword, createUserDocFromAuth } from '../..
 import FormInput from '../form-input/form-input-component'
 import './sign-up-style.scss'
 import Button from '../button/button.component'
-import { UserContext } from '../../contexts/user-context'
+//import { UserContext } from '../../contexts/user-context'
 
 const SignUp = () => {
-
+    //onAuthStateChanged, the centralized state linstener can listen to the state change of authentication
     //const [setCurrentUser] = useContext(UserContext)
 
     const defaultFormField = {
@@ -44,6 +44,7 @@ const SignUp = () => {
             //console.log(response.user) 
             await createUserDocFromAuth(user, { displayName })
             resetFormField();
+            //setCurrentUser(user)
         }
         catch (error) {
             if (error.code === 'auth/email-already-in-use') {
@@ -58,7 +59,7 @@ const SignUp = () => {
 
     const inputOptions = [
         {
-            label: 'Your User Name',
+            label: 'User Name',
             type: 'text',
             name: 'displayName',
             value: displayName,

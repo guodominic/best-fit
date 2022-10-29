@@ -44,7 +44,7 @@ export const signInWithGoogleRedirect = () => signInWithRedirect(auth, googlePro
 export const db = getFirestore(app); //looks like app is optional to be included in  (  )
 //use the db info
 export const createUserDocFromAuth = async (userAuth, additionalUserInfo) => {
-    console.log(userAuth)
+    //console.log(userAuth)
     if (!userAuth) return;
     const userDocRef = doc(db, 'users', userAuth.uid);
     //console.log(userDocRef)
@@ -89,4 +89,5 @@ export const deleteAccountUser = async (uid) => {
         })
 }
 
-export const onAuthStateChangedListener = (callback) => onAuthStateChanged(auth, callback);
+export const onAuthStateChangedListener = (callback) =>
+    onAuthStateChanged(auth, callback);
