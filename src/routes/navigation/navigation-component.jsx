@@ -2,12 +2,16 @@ import { Outlet, Link } from 'react-router-dom'
 import { Fragment, useContext } from 'react'
 //import { ReactComponent as CrownLogo } from '../../Assets/crown.svg'
 import './navigation-styles.scss'
+import CartIcon from '../../components/cart-icon/cart-icon-component'
+import CartDropdown from '../../components/cart-dropdown/cart-dropdown-component'
 import { UserContext } from '../../contexts/user-context'
+import { CartContext } from '../../contexts/cart-context'
 import { signOutUser, deleteAccountUser } from '../../utils/firebase/firebase.utils.js'
 
 const Navigation = () => {
 
     const { currentUser, setCurrentUser } = useContext(UserContext);
+    const { isCartOpen } = useContext(CartContext);
     //onAuthStateChanged, the centralized state linstener can listen to the state change of authentication
     /*     const signOutHandler = async () => {
             await signOutUser();
@@ -46,9 +50,11 @@ const Navigation = () => {
                             to='best-fit/auth'>
                             SIGN IN
                         </Link>
-                    )
-                    }
+                    )}
+                    <CartIcon />
                 </div>
+                {/* short circuit operator */}
+                {isCartOpen && <CartDropdown />}
             </div>
             <Outlet />
         </Fragment>
