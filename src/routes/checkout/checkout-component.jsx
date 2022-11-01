@@ -6,25 +6,25 @@ import { CartContext } from '../../contexts/cart-context'
 
 
 const Checkout = () => {
-    const { cartItems, totalPrice, addItemToCart, minusItemToCart } = useContext(CartContext)
+    const { cartItems, totalPrice, addItemToCart, minusItemToCart, removeItemFromCart } = useContext(CartContext)
 
     const cartItemsToCheckout = cartItems.map(cartItem => {
-        const { name, quantity, price, imageUrl } = cartItem;
-        return (<div style={{ display: 'flex', justifyContent: 'space-around', marginTop: '30px' }}>
-            <img alt={`${name}`} src={imageUrl} />
-            <h2>{name}</h2>
-            <div style={{ display: 'flex' }}>
-                <Decrease style={{ cursor: 'pointer' }} onClick={() => minusItemToCart(cartItem)} />
-                <h2 style={{ marginBottom: '20px' }}>{quantity}</h2>
-                <Increase style={{ cursor: 'pointer' }} onClick={() => addItemToCart(cartItem)} />
+        const { id, name, quantity, price, imageUrl } = cartItem;
+        return (
+            <div key={id} style={{ display: 'flex', justifyContent: 'space-around', marginTop: '30px' }}>
+                <img alt={`${name}`} src={imageUrl} />
+                <h2>{name}</h2>
+                <div style={{ display: 'flex' }}>
+                    <Decrease style={{ cursor: 'pointer' }} onClick={() => minusItemToCart(cartItem)} />
+                    <h2 style={{ marginBottom: '20px' }}>{quantity}</h2>
+                    <Increase style={{ cursor: 'pointer' }} onClick={() => addItemToCart(cartItem)} />
+                </div>
+                <h2>{price}</h2>
+                <Remove style={{ cursor: 'pointer' }} onClick={() => removeItemFromCart(cartItem)} />
             </div>
-            <h2>{price}</h2>
-            <Remove style={{ cursor: 'pointer' }} onClick={() => handleRemove} />
-        </div>)
+        )
     })
-    const handleRemove = () => {
 
-    }
     return (
         <div>
             <div style={{ display: 'flex', justifyContent: 'space-around', marginTop: '30px' }}>

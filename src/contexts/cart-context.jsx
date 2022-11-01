@@ -32,13 +32,18 @@ export const CartProvider = ({ children }) => {
             :
             setCartItems([...cartItems, { ...productToAdd, quantity: 1 }])
     }
-    const minusItemToCart = (productToAdd) => {
+    const minusItemToCart = (productTominus) => {
         setCartItems(cartItems.map(cartItem =>
-            cartItem.id === productToAdd.id
+            cartItem.id === productTominus.id
                 ? { ...cartItem, quantity: cartItem.quantity - 1 >= 0 ? cartItem.quantity - 1 : 0 }
                 : cartItem
         ))
-
+    }
+    const removeItemFromCart = (productToRemove) => {
+        let index = cartItems.findIndex(cartItem => cartItem.id === productToRemove.id)
+        const newCartItems = [...cartItems]
+        newCartItems.splice(index, 1)
+        setCartItems(newCartItems)
     }
     useEffect(() => {
         //use map
@@ -50,6 +55,15 @@ export const CartProvider = ({ children }) => {
         setTotalPrice(newTotalPrice)
     }, [cartItems])
 
-    const value = { isCartOpen, setIsCartOpen, addItemToCart, cartItems, productQuantity, totalPrice, minusItemToCart };
+    const value = {
+        isCartOpen,
+        setIsCartOpen,
+        addItemToCart,
+        cartItems,
+        productQuantity,
+        totalPrice,
+        minusItemToCart,
+        removeItemFromCart
+    };
     return <CartContext.Provider value={value}>{children}</CartContext.Provider>
 }
