@@ -32,18 +32,21 @@ export const CartProvider = ({ children }) => {
             :
             setCartItems([...cartItems, { ...productToAdd, quantity: 1 }])
     }
-    const minusItemToCart = (productTominus) => {
+    const minusItemToCart = (productToMinus) => {
         setCartItems(cartItems.map(cartItem =>
-            cartItem.id === productTominus.id
+            cartItem.id === productToMinus.id
                 ? { ...cartItem, quantity: cartItem.quantity - 1 >= 0 ? cartItem.quantity - 1 : 0 }
                 : cartItem
         ))
+        if (productToMinus.quantity === 0) {
+            removeItemFromCart(productToMinus)
+        }
     }
     const removeItemFromCart = (productToRemove) => {
-        let index = cartItems.findIndex(cartItem => cartItem.id === productToRemove.id)
-        const newCartItems = [...cartItems]
-        newCartItems.splice(index, 1)
-        setCartItems(newCartItems)
+        /* let index = cartItems.findIndex(cartItem => cartItem.id === productToRemove.id)
+         const newCartItems = [...cartItems]
+        newCartItems.splice(index, 1)  */
+        setCartItems(cartItems.filter(cartItem => cartItem.id !== productToRemove.id))
     }
     useEffect(() => {
         //use map

@@ -3,6 +3,8 @@ import { ReactComponent as Increase } from './plus.svg'
 import { ReactComponent as Remove } from './cross.svg'
 import { useContext } from 'react'
 import { CartContext } from '../../contexts/cart-context'
+import './checkout.styles.scss'
+import './checkout-item.styles.scss'
 
 
 const Checkout = () => {
@@ -11,33 +13,40 @@ const Checkout = () => {
     const cartItemsToCheckout = cartItems.map(cartItem => {
         const { id, name, quantity, price, imageUrl } = cartItem;
         return (
-            <div key={id} style={{ display: 'flex', justifyContent: 'space-around', marginTop: '30px' }}>
-                <img alt={`${name}`} src={imageUrl} />
-                <h2>{name}</h2>
-                <div style={{ display: 'flex' }}>
-                    <Decrease style={{ cursor: 'pointer' }} onClick={() => minusItemToCart(cartItem)} />
-                    <h2 style={{ marginBottom: '20px' }}>{quantity}</h2>
-                    <Increase style={{ cursor: 'pointer' }} onClick={() => addItemToCart(cartItem)} />
+            <div key={id} className='checkout-item-container'>
+                <div className='image-container'>
+                    <img alt={`${name}`} src={imageUrl} />
                 </div>
-                <h2>{price}</h2>
-                <Remove style={{ cursor: 'pointer' }} onClick={() => removeItemFromCart(cartItem)} />
+                <span className='name'>{name}</span>
+
+                <span className='quantity'>
+                    <Decrease onClick={() => minusItemToCart(cartItem)} className='remove-button' />
+                    <span className='value'>{quantity}</span>
+                    <Increase onClick={() => addItemToCart(cartItem)} className='plus-button' />
+                </span>
+
+                <span className='price'>${price}</span>
+                <Remove onClick={() => removeItemFromCart(cartItem)} className='remove-button' />
+            </div>
+        )
+    })
+
+    const checkoutHeaderArray = ['Product', 'Description', 'Quantity', 'Price', 'Remove'];
+    const checkoutHeader = checkoutHeaderArray.map((headerItem) => {
+        return (
+            <div className='header-block'>
+                <span>{headerItem}</span>
             </div>
         )
     })
 
     return (
-        <div>
-            <div style={{ display: 'flex', justifyContent: 'space-around', marginTop: '30px' }}>
-                <h2>Product</h2>
-                <h2>Description</h2>
-                <h2>Quantity</h2>
-                <h2>Price</h2>
-                <h2>Remove</h2>
+        <div className='checkout-container'>
+            <div className='checkout-header'>
+                {checkoutHeader}
             </div>
-            <div >
-                {cartItemsToCheckout}
-            </div>
-            <h1>total Price ${totalPrice}</h1>
+            {cartItemsToCheckout}
+            <span className='total'>Total Price ${totalPrice}</span>
         </div>
     )
 }

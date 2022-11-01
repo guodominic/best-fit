@@ -6,6 +6,7 @@
   padding: 15px 0;
   font-size: 20px;
   align-items: center;
+  border-radius: 0%;
 
   .image-container {
     width: 23%;
@@ -31,11 +32,16 @@
 
     .value {
       margin: 0 10px;
+      padding-top: 3px;
     }
   }
 
+  .plus-button{
+    padding-right: 10px;
+    cursor: pointer;
+  }
   .remove-button {
-    padding-left: 12px;
+    padding-left: 10px;
     cursor: pointer;
   }
 }
