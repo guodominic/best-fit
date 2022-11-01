@@ -3,11 +3,10 @@ import { ReactComponent as Increase } from './plus.svg'
 import { ReactComponent as Remove } from './cross.svg'
 import { useContext } from 'react'
 import { CartContext } from '../../contexts/cart-context'
-import Button from '../../components/button/button.component'
 
 
 const Checkout = () => {
-    const { cartItems, totalPrice } = useContext(CartContext)
+    const { cartItems, totalPrice, addItemToCart, minusItemToCart } = useContext(CartContext)
 
     const cartItemsToCheckout = cartItems.map(cartItem => {
         const { name, quantity, price, imageUrl } = cartItem;
@@ -15,9 +14,9 @@ const Checkout = () => {
             <img alt={`${name}`} src={imageUrl} />
             <h2>{name}</h2>
             <div style={{ display: 'flex' }}>
-                <Decrease style={{ cursor: 'pointer' }} onClick={() => handleRemove} />
+                <Decrease style={{ cursor: 'pointer' }} onClick={() => minusItemToCart(cartItem)} />
                 <h2 style={{ marginBottom: '20px' }}>{quantity}</h2>
-                <Increase style={{ cursor: 'pointer' }} onClick={() => handleRemove} />
+                <Increase style={{ cursor: 'pointer' }} onClick={() => addItemToCart(cartItem)} />
             </div>
             <h2>{price}</h2>
             <Remove style={{ cursor: 'pointer' }} onClick={() => handleRemove} />
