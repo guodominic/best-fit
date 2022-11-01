@@ -1,7 +1,7 @@
 {
   "files": {
     "main.css": "/best-fit/static/css/main.ffb99304.css",
-    "main.js": "/best-fit/static/js/main.62c132b4.js",
+    "main.js": "/best-fit/static/js/main.cef8fa3d.js",
     "static/js/787.d7ece244.chunk.js": "/best-fit/static/js/787.d7ece244.chunk.js",
     "static/media/shopping-bag.svg": "/best-fit/static/media/shopping-bag.a688874f6f1507316bdfa420328a4a53.svg",
     "index.html": "/best-fit/index.html",
@@ -9,11 +9,11 @@
     "static/media/plus.svg": "/best-fit/static/media/plus.b50bd5cb4a26a0884e103f567a2b54ee.svg",
     "static/media/minus.svg": "/best-fit/static/media/minus.82edd7f70bff7cde414356caf0763d40.svg",
     "main.ffb99304.css.map": "/best-fit/static/css/main.ffb99304.css.map",
-    "main.62c132b4.js.map": "/best-fit/static/js/main.62c132b4.js.map",
+    "main.cef8fa3d.js.map": "/best-fit/static/js/main.cef8fa3d.js.map",
     "787.d7ece244.chunk.js.map": "/best-fit/static/js/787.d7ece244.chunk.js.map"
   },
   "entrypoints": [
     "static/css/main.ffb99304.css",
-    "static/js/main.62c132b4.js"
+    "static/js/main.cef8fa3d.js"
   ]
 }
