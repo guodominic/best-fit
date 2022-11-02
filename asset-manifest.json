@@ -1,19 +1,19 @@
 {
   "files": {
-    "main.css": "/best-fit/static/css/main.d67687e0.css",
-    "main.js": "/best-fit/static/js/main.a957476c.js",
+    "main.css": "/best-fit/static/css/main.96e011c2.css",
+    "main.js": "/best-fit/static/js/main.a0444c63.js",
     "static/js/787.d7ece244.chunk.js": "/best-fit/static/js/787.d7ece244.chunk.js",
     "static/media/shopping-bag.svg": "/best-fit/static/media/shopping-bag.a688874f6f1507316bdfa420328a4a53.svg",
     "index.html": "/best-fit/index.html",
     "static/media/cross.svg": "/best-fit/static/media/cross.5851d69dc92806ee8b5f0a0c32c35de1.svg",
     "static/media/plus.svg": "/best-fit/static/media/plus.b50bd5cb4a26a0884e103f567a2b54ee.svg",
     "static/media/minus.svg": "/best-fit/static/media/minus.82edd7f70bff7cde414356caf0763d40.svg",
-    "main.d67687e0.css.map": "/best-fit/static/css/main.d67687e0.css.map",
-    "main.a957476c.js.map": "/best-fit/static/js/main.a957476c.js.map",
+    "main.96e011c2.css.map": "/best-fit/static/css/main.96e011c2.css.map",
+    "main.a0444c63.js.map": "/best-fit/static/js/main.a0444c63.js.map",
     "787.d7ece244.chunk.js.map": "/best-fit/static/js/787.d7ece244.chunk.js.map"
   },
   "entrypoints": [
-    "static/css/main.d67687e0.css",
-    "static/js/main.a957476c.js"
+    "static/css/main.96e011c2.css",
+    "static/js/main.a0444c63.js"
   ]
 }
