@@ -1,4 +1,4 @@
-import { useParams } from "react-router-dom"
+import { useParams, Link } from "react-router-dom"
 import { useContext, useState, useEffect } from "react"
 import { CategoriesContext } from "../../contexts/categories-context"
 import ProductCard from "../../components/product-card/product-card-component"
@@ -15,6 +15,9 @@ const CategoryComponent = () => {
     console.log(categoriesMap[category])
     return (
         <div className='category-container'>
+            <Link to='/best-fit/shop'>
+                <h2>{category}</h2>
+            </Link>
             {products &&
                 products.map((product) =>
                     (<ProductCard key={product.id} product={product} />)
