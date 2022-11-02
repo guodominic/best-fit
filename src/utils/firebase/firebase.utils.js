@@ -17,6 +17,10 @@ import {
     doc,
     getDoc,
     setDoc,
+    collection,
+    writeBatch,
+    query,
+    getDocs,
 } from 'firebase/firestore'
 
 // Your web app's Firebase configuration
@@ -91,3 +95,36 @@ export const deleteAccountUser = async (uid) => {
 
 export const onAuthStateChangedListener = (callback) =>
     onAuthStateChanged(auth, callback);
+
+//async: due to accessing external source, 
+//ex.of collectionKey is "users", "catogeries"
+//ex. of objectToAdd: actual document: {title: 'hats', items:[{id:1, name:'hat1', price:20}, {...}...]}
+export const addCollectionAndDoc = async (collectionKey, objectToAdd) => {
+    //use to reference the collection to be added
+    const collectionRef = collection(db, collectionKey);
+    //store the objectToAdd (document) to collection
+    const batch = writeBatch(db);
+    //add the objectToAdd items to collection
+    objectToAdd.forEach(object => {
+        //use to reference the document to be added   
+        const docRef = doc(collectionRef, object.title.toLowerCase());
+        //set the batch to firebase to add the document
+        batch.set(docRef, object);
+    });
+    //finish adding data
+    await batch.commit();
+    console.log('done')
+}
+//get categories from firebase
+export const getCategoriesAndDoc = async () => {
+    const collectionRef = collection(db, 'categories')
+    //query and get the collection 'categories'
+    const querySnapshot = await getDocs(query(collectionRef))
+    //store the data from firebase to categoriesMap
+    const categoriesMap = querySnapshot.docs.reduce((acc, docSnapshot) => {
+        const { title, items } = docSnapshot.data();
+        acc[title.toLowerCase()] = items;
+        return acc;
+    }, {})
+    return categoriesMap;
+}
