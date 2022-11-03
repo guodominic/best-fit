@@ -8,22 +8,24 @@ const CategoryComponent = () => {
     const { category } = useParams();
     const { categoriesMap } = useContext(CategoriesContext);
     const [products, setProducts] = useState(categoriesMap[category]);
-    console.log(category)
+
     useEffect(() => {
         setProducts(categoriesMap[category])
     }, [category, categoriesMap])
-    console.log(categoriesMap[category])
+
     return (
-        <div className='category-container'>
+        <>
             <Link to='/best-fit/shop'>
-                <h2>{category}</h2>
+                <h2 className="category-title">{category.toUpperCase()}</h2>
             </Link>
-            {products &&
-                products.map((product) =>
-                    (<ProductCard key={product.id} product={product} />)
-                )
-            }
-        </div>
+            <div className='category-container'>
+                {products &&
+                    products.map((product) =>
+                        (<ProductCard key={product.id} product={product} />)
+                    )
+                }
+            </div>
+        </>
     )
 }
 
