@@ -1,3 +1,26 @@
+    @font-face {
+    font-family: 'New Walt Disney UI Regular';
+    font-style: normal;
+    font-weight: normal;
+    src: local('New Walt Disney UI Regular'), url('New Walt Disney UI.woff') format('woff');
+    }
+    
+
+    @font-face {
+    font-family: 'New Walt Disney Font Regular';
+    font-style: normal;
+    font-weight: normal;
+    src: local('New Walt Disney Font Regular'), url('New Walt Disney.woff') format('woff');
+    }
+
+    .fontFace{
+      font-family: 'New Walt Disney UI Regular';
+      display: flex;
+      justify-content: center;
+      color: rgb(208, 177, 0);
+      font-size: 50px;
+    }
+
 body {
   margin: 0;
   font-family: 'Dosis', sans-serif;

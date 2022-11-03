@@ -16,7 +16,7 @@ const CategoryComponent = () => {
     return (
         <>
             <Link to='/best-fit/shop'>
-                <h2 className="category-title">{category.toUpperCase()}</h2>
+                <h2 className="category-title">&#10594;</h2>
             </Link>
             <div className='category-container'>
                 {products &&

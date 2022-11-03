@@ -33,6 +33,7 @@ const Home = () => {
     return (
         <div>
             <Outlet />
+            <h1 className='fontFace'>MY BABY SHOP</h1>
             <Directory categories={categories} />
             <Outlet />
         </div>
