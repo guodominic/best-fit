@@ -1,19 +1,19 @@
 {
   "files": {
-    "main.css": "/best-fit/static/css/main.3f94ba5c.css",
-    "main.js": "/best-fit/static/js/main.6d53e809.js",
+    "main.css": "/best-fit/static/css/main.2cb8decc.css",
+    "main.js": "/best-fit/static/js/main.28386b89.js",
     "static/js/787.d7ece244.chunk.js": "/best-fit/static/js/787.d7ece244.chunk.js",
     "static/media/shopping-bag.svg": "/best-fit/static/media/shopping-bag.a688874f6f1507316bdfa420328a4a53.svg",
     "index.html": "/best-fit/index.html",
     "static/media/cross.svg": "/best-fit/static/media/cross.5851d69dc92806ee8b5f0a0c32c35de1.svg",
     "static/media/plus.svg": "/best-fit/static/media/plus.b50bd5cb4a26a0884e103f567a2b54ee.svg",
     "static/media/minus.svg": "/best-fit/static/media/minus.82edd7f70bff7cde414356caf0763d40.svg",
-    "main.3f94ba5c.css.map": "/best-fit/static/css/main.3f94ba5c.css.map",
-    "main.6d53e809.js.map": "/best-fit/static/js/main.6d53e809.js.map",
+    "main.2cb8decc.css.map": "/best-fit/static/css/main.2cb8decc.css.map",
+    "main.28386b89.js.map": "/best-fit/static/js/main.28386b89.js.map",
     "787.d7ece244.chunk.js.map": "/best-fit/static/js/787.d7ece244.chunk.js.map"
   },
   "entrypoints": [
-    "static/css/main.3f94ba5c.css",
-    "static/js/main.6d53e809.js"
+    "static/css/main.2cb8decc.css",
+    "static/js/main.28386b89.js"
   ]
 }
