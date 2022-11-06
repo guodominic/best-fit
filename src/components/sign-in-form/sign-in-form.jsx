@@ -6,8 +6,8 @@ import {
 } from '../../utils/firebase/firebase.utils'
 //import { auth } from '../../utils/firebase/firebase.utils'
 import FormInput from '../form-input/form-input-component'
+import Button, { BUTTON_TYPE_CLASSES } from '../button/button.component'
 import './sign-in-style.scss'
-import Button from '../button/button.component'
 //import { UserContext } from '../../contexts/user-context'
 
 const SignIn = () => {
@@ -94,7 +94,7 @@ const SignIn = () => {
                     </Button>
                     <Button
                         type='button'
-                        buttonType='google'
+                        buttonType={BUTTON_TYPE_CLASSES.google}
                         onClick={signInWithGoogleAcct}
                     >Google Sign in
                     </Button>

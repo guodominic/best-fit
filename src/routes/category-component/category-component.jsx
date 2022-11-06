@@ -5,6 +5,7 @@ import ProductCard from "../../components/product-card/product-card-component"
 import './category-style.scss'
 
 const CategoryComponent = () => {
+
     const { category } = useParams();
     const { categoriesMap } = useContext(CategoriesContext);
     const [products, setProducts] = useState(categoriesMap[category]);

@@ -1,12 +1,12 @@
 import { Outlet, Link } from 'react-router-dom'
 import { Fragment, useContext } from 'react'
 //import { ReactComponent as CrownLogo } from '../../Assets/crown.svg'
-import './navigation-styles.scss'
 import CartIcon from '../../components/cart-icon/cart-icon-component'
 import CartDropdown from '../../components/cart-dropdown/cart-dropdown-component'
 import { UserContext } from '../../contexts/user-context'
 import { CartContext } from '../../contexts/cart-context'
 import { signOutUser, deleteAccountUser } from '../../utils/firebase/firebase.utils.js'
+import { NavigationContainer, NavLink, NavLinks, LogoContainer, ImgContainer } from './navigation-styles'
 
 const Navigation = () => {
 
@@ -24,38 +24,37 @@ const Navigation = () => {
     }
     return (
         <Fragment>
-            <div className='navigation'>
-                <Link className='logo-container' to='/best-fit'>
+            <NavigationContainer>
+                <LogoContainer to='/best-fit'>
                     {/* <CrownLogo /> */}
-                    <img alt='logo'
+                    <ImgContainer alt='logo'
                         src='https://media.istockphoto.com/vectors/pram-for-dolls-line-icon-kids-toys-concept-toy-baby-carriage-sign-on-vector-id1255830527?k=20&m=1255830527&s=612x612&w=0&h=xfoPf53CstU2vvVbTZqyALYKRSN4TNwLW-Wm0Sq3DJs=' />
-                </Link>
-                <div className='nav-links-container'>
-                    <Link className='nav-link' to='shop'>
+                </LogoContainer>
+                <NavLinks>
+                    <NavLink to='shop'>
                         SHOP
-                    </Link>
-                    <Link className='nav-link' to='contact'>
+                    </NavLink>
+                    <NavLink to='contact'>
                         CONTACT
-                    </Link>
+                    </NavLink>
                     {currentUser ? (
                         <div style={{ display: 'flex' }}>
-                            <span className='nav-link' onClick={signOutUser}
+                            <NavLink as='span' onClick={signOutUser}
                             >
-                                SIGN OUT</span>
+                                SIGN OUT</NavLink>
                             <span className='nav-link' onClick={signOutUser} >DELETE ACCOUNT</span>
                         </div>
                     ) : (
-                        <Link
-                            className='nav-link'
+                        <NavLink
                             to='auth'>
                             SIGN IN
-                        </Link>
+                        </NavLink>
                     )}
                     <CartIcon />
-                </div>
+                </NavLinks>
                 {/* short circuit operator */}
                 {isCartOpen && <CartDropdown />}
-            </div>
+            </NavigationContainer>
             <Outlet />
         </Fragment>
     )
